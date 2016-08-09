@@ -15,14 +15,14 @@ command: **npm install -g angular-cli**.
    2. In the near future, Angular CLI will use Webpack as its module loader, at which point you would need to
    install the last SystemJS version rather than the current CLI version.
    
-3. Checkout the repo to a project folder on your system.
+3. Download the repo to a project folder on your system.
 
 4. Open a terminal/command prompt in the project folder and execute the following commands:  
    1. **npm install** to download and install the necessary node modules (this will take at least a few minutes)
    2. **ng serve**, which will create a "dist" folder in the project and will serve the application 
 
 
-## Version Highlights
+## Release Highlights
 
 ### 0.0.1
 
