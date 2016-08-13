@@ -15,8 +15,8 @@
         <tr *ngFor="let guild of guilds">
           <td>{{guild.id}}</td>
           <td>{{guild.name}}</td>
-          <td>{{guild.expenses}}</td>
-          <td>{{guild.revenue}}</td>
+          <td>{{guild.expenses | currency:USD:true:'4.2-2' }}</td>
+          <td>{{guild.revenue | currency:USD:true:'4.2-2' }}</td>
           <td>{{guild.members.length}}</td>
         </tr>
       </tbody>
