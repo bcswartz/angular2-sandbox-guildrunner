@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Guilds</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Expenses</th>
+          <th>Revenue</th>
+          <th>Membership</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guild of guilds">
+          <td>{{guild.id}}</td>
+          <td>{{guild.name}}</td>
+          <td>{{guild.expenses}}</td>
+          <td>{{guild.revenue}}</td>
+          <td>{{guild.members.length}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -10,6 +10,9 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app';
 
+import { APP_ROUTER_PROVIDERS } from './app/app.routing';
+
+
 if (environment.production) {
   enableProdMode();
 }
@@ -17,5 +20,6 @@ if (environment.production) {
 bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
-  { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
+  { provide: SEED_DATA, useClass: InMemoryDataService },     // in-mem server data
+  APP_ROUTER_PROVIDERS
 ]);
