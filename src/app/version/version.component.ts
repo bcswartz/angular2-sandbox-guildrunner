@@ -11,7 +11,7 @@ import { VersionService } from './version.service';
 })
 export class VersionComponent implements OnInit {
 
-  versionNumber = '-.*.-';
+  versionNumber = '-.-.-';
 
   constructor( private versionService: VersionService ) { }
 

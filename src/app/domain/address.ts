@@ -1,5 +1,9 @@
 export class Address {
-  street1: string;
-  street2: string;
+  street: string;
   city: string;
+
+  constructor( addressData: any ) {
+    this.street = addressData.street;
+    this.city = addressData.city;
+  }
 }

@@ -1,19 +1,9 @@
-/*
-So we're going to do a few things here:
---Calculate profit (or lack thereof)
---Display fullname
---Age display with years based on birthdate
-  --Maybe format the date differently
-*/
-
 let guilds = [
   {
     id: 1,
     name: "Blacksmiths",
-    nickname: "Beamers",
     address: {
-      street1: '134 Underrock Lane',
-      street2: '',
+      street: '134 Underrock Lane',
       city: 'Old London'
     },
     expenses: 10000,
@@ -42,10 +32,8 @@ let guilds = [
   {
     id: 2,
     name: "Assassins",
-    nickname: "Sneakers",
     address: {
-      street1: '979 Shadow Alley',
-      street2: '',
+      street: '979 Shadow Alley',
       city: 'Old London'
     },
     expenses: 22000,
@@ -75,6 +63,30 @@ let guilds = [
         lastName:  'Terrios',
         birthdate: '1991-12-25'
       },
+    ]
+  },
+  {
+    id: 3,
+    name: "Thieves",
+    address: {
+      street: '13 Bankers Avenue',
+      city: 'Old London'
+    },
+    expenses: 7000,
+    revenue: 14750,
+    members: [
+      {
+        id: 28,
+        firstName: 'Barker',
+        lastName:  'Rafina',
+        birthdate: '1978-09-02'
+      },
+      {
+        id: 29,
+        firstName: 'Kalassian',
+        lastName:  'Tremane',
+        birthdate: '1987-10-21'
+      }
     ]
   }
 ];

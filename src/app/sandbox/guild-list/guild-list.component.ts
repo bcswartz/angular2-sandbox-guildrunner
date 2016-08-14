@@ -15,7 +15,7 @@ export class GuildListComponent implements OnInit {
   constructor( private sandboxService: SandboxService ) { }
 
   ngOnInit() {
-    this.sandboxService.getGuilds().then( guilds => this.guildList = JSON.stringify( guilds ) );
+    this.sandboxService.getGuilds().then( guilds => this.guildList = JSON.stringify( guilds, null, 2 ) );
   }
 
 }

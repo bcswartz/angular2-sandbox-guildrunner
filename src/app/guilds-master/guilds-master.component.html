@@ -8,16 +8,18 @@
           <th>Name</th>
           <th>Expenses</th>
           <th>Revenue</th>
-          <th>Membership</th>
+          <th>Profit</th>
+          <th># of Members</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let guild of guilds">
-          <td>{{guild.id}}</td>
-          <td>{{guild.name}}</td>
-          <td>{{guild.expenses | currency:USD:true:'4.2-2' }}</td>
-          <td>{{guild.revenue | currency:USD:true:'4.2-2' }}</td>
-          <td>{{guild.members.length}}</td>
+          <td align="center">{{guild.id}}</td>
+          <td align="center">{{guild.name}}</td>
+          <td align="right">{{guild.expenses | currency:USD:true:'.2-2' }}</td>
+          <td align="right">{{guild.revenue | currency:USD:true:'.2-2' }}</td>
+          <td align="right">{{guild.profit | currency:USD:true:'.2-2'}}</td>
+          <td align="right">{{guild.members.length}}</td>
         </tr>
       </tbody>
     </table>

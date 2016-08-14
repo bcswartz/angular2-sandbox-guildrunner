@@ -11,12 +11,16 @@ import { Guild } from '../domain/guild';
 })
 export class GuildsMasterComponent implements OnInit {
 
-  guilds: Guild[];
+  guilds: Guild[] = [];
 
   constructor( private guildService: GuildService ) { }
 
   ngOnInit() {
-    this.guildService.getGuilds().then( guilds => this.guilds = guilds );
+    this.guildService.getGuilds().then( guilds => {
+      guilds.forEach( guild => {
+        this.guilds.push( new Guild( guild ) )
+      })
+    } );
   }
 
 }
