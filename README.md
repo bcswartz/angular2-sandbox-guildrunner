@@ -3,6 +3,11 @@ The GuildRunner web application is a sandbox project for learning how to build A
 research and experimentation.  Blog posts concerning the evolution of the project can be found at 
 [http://www.thoughtdelimited.org/thoughts](http://www.thoughtdelimited.org/thoughts/) 
 
+## Angular / Angular CLI Version Notes
+
+As of release 0.0.2, this application is built around Angular 2 release candidate 4 (RC4) and Angular CLI version beta.10.  So it does not 
+utilize Webpack as its module loader (it uses SystemJS), nor does it use the @ngModule decorator introduced in Angular 2 RC5.
+
 ## Installation Instructions
 
 To download and execute this web application on your own system, perform the following steps:
@@ -23,6 +28,14 @@ command: **npm install -g angular-cli**.
 
 
 ## Release Highlights
+
+### 0.0.2
+
+* Added Bootstrap navigation bar
+* Added routing
+* Created guild, address, and member data and domain classes
+* Created "sandbox" area of application to hold experimental/diagnostic features
+* Created guild master list component to display data from instances of the Guild domain class
 
 ### 0.0.1
 
