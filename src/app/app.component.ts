@@ -1,22 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-
-import { VersionComponent } from './version/version.component';
-import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [
-    VersionComponent,
-    MainNavigationComponent
-  ]
-
+  styleUrls: ['app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'GuildRunner';
 
-  ngOnInit() {}
+export class AppComponent {
+  title = 'GuildRunner';
 
 }

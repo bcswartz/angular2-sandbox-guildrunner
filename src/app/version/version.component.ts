@@ -5,9 +5,6 @@ import { VersionService } from './version.service';
   moduleId: module.id,
   selector: 'app-version',
   templateUrl: 'version.component.html',
-  providers: [
-    VersionService
-  ]
 })
 export class VersionComponent implements OnInit {
 

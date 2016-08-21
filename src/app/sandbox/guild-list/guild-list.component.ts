@@ -5,8 +5,7 @@ import { SandboxService } from '../sandbox.service';
   moduleId: module.id,
   selector: 'app-guild-list',
   templateUrl: 'guild-list.component.html',
-  styleUrls: ['guild-list.component.css'],
-  providers: [ SandboxService ]
+  styleUrls: ['guild-list.component.css']
 })
 export class GuildListComponent implements OnInit {
 

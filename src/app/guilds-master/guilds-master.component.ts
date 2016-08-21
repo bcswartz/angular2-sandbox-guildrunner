@@ -6,8 +6,7 @@ import { Guild } from '../domain/guild';
   moduleId: module.id,
   selector: 'app-guilds-master',
   templateUrl: 'guilds-master.component.html',
-  styleUrls: ['guilds-master.component.css'],
-  providers: [ GuildService ]
+  styleUrls: ['guilds-master.component.css']
 })
 export class GuildsMasterComponent implements OnInit {
 
