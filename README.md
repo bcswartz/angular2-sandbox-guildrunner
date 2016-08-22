@@ -5,7 +5,7 @@ research and experimentation.  Blog posts concerning the evolution of the projec
 
 ## Angular / Angular CLI Version Notes
 
-As of release 0.0.2, this application is built around Angular 2 release candidate 4 (RC4) and Angular CLI version beta.10.  So it does not 
+As of release 0.0.3, this application is built around Angular 2 release candidate 5 (RC5) and Angular CLI version beta.10.  So it does not 
 utilize Webpack as its module loader (it uses SystemJS), nor does it use the @ngModule decorator introduced in Angular 2 RC5.
 
 ## Installation Instructions
@@ -29,6 +29,13 @@ command: **npm install -g angular-cli**.
 
 ## Release Highlights
 
+### 0.0.3
+
+* Upgraded Angular modules to release candidate 5 (RC5)
+* Refactored routing code to use latest routing setup and syntax
+* Refactored multiple files to utilize ngModule introduced in RC5
+* Moved sandbox feature files into separate module and routing file
+
 ### 0.0.2
 
 * Added Bootstrap navigation bar
@@ -39,8 +46,8 @@ command: **npm install -g angular-cli**.
 
 ### 0.0.1
 
-* Basic application foundation established.
-* Added [in-memory web API](https://angular.io/docs/ts/latest/guide/server-communication.html#!#in-mem-web-api) to application to make use of mock data.
-* Created "db" folder to hold mock data exports.
+* Basic application foundation established
+* Added [in-memory web API](https://angular.io/docs/ts/latest/guide/server-communication.html#!#in-mem-web-api) to application to make use of mock data
+* Created "db" folder to hold mock data exports
 
 

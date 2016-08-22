@@ -14,6 +14,6 @@ describe('guildrunner App', function() {
 
   it('should display the version number preceded by a label', () => {
     page.navigateTo();
-    expect(page.getVersionText()).toEqual('Version: 0.0.2');
+    expect(page.getVersionText()).toEqual('Version: 0.0.3');
   });
 });
