@@ -6,7 +6,7 @@ research and experimentation.  Blog posts concerning the evolution of the projec
 ## Angular / Angular CLI Version Notes
 
 As of release 0.0.3, this application is built around Angular 2 release candidate 5 (RC5) and Angular CLI version beta.10.  So it does not 
-utilize Webpack as its module loader (it uses SystemJS), nor does it use the @ngModule decorator introduced in Angular 2 RC5.
+utilize Webpack as its module loader (it uses SystemJS), but it does use the ngModule feature introduced in Angular 2 RC5.
 
 ## Installation Instructions
 
