@@ -12,14 +12,13 @@
     <div class="collapse navbar-collapse" id="mainnav-navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a [routerLink]="['/guilds-master']" routerLinkActive="active">Guilds</a>
+          <a [routerLink]="['/guilds']" routerLinkActive="active">Guilds</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sandbox <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <!--<li><a href="#" >Temp Show guilds</a></li>-->
             <li><a [routerLink]="['/sandbox-guildlist']" routerLinkActive="active">Show raw guild data</a></li>
           </ul>
         </li>

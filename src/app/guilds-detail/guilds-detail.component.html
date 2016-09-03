@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12">
+    <h6 *ngIf="!guild && !serviceErrors">Loading...</h6>
+    <h3 *ngIf="guild">
+      {{(guild.id ? 'Edit' : 'Add' )}} {{(guild.name ? guild.name : 'Guild')}}</h3>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="serviceErrors">
+  <div class="col-md-12">
+    <div class="alert alert-danger">
+      <h4>Error(s):</h4>
+      <ul>
+        <li *ngFor="let error of serviceErrors">
+          {{error}}
+        </li>
+      </ul>
+      <br />
+      <button type="button" class="btn btn-danger btn-xs" *ngIf="!guild" (click)="goBack()">Return to guild list</button>
+    </div>
+  </div>
+</div>
+
+<form class="form-horizontal well well-sm" *ngIf="guild" (ngSubmit)="onSubmit()" #guildForm="ngForm">
+
+  <div class="form-group">
+    <label for="name" class="col-md-2 control-label">Name:</label>
+    <div class="col-md-6">
+      <input id="name" type="text" class="form-control" [(ngModel)]="guild.name" (change)="checkValidity( 'name' )" (keyup)="checkFix( 'name' )" name="name" #name="ngModel" />
+      <div *ngIf="status.name.errors.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of status.name.errors">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="incorporationYear" class="col-md-2 control-label">Year Incorporated:</label>
+    <div class="col-md-6">
+      <input id="incorporationYear" type="text" class="form-control" [(ngModel)]="guild.incorporationYear" (change)="checkValidity( 'incorporationYear' )" (keyup)="checkFix( 'incorporationYear' )" name="incorporationYear" #incorporationYear="ngModel" />
+      <div *ngIf="status.incorporationYear.errors.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of status.incorporationYear.errors">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="col-md-2 control-label">Email:</label>
+    <div class="col-md-6">
+      <input id="email" type="text" class="form-control" [(ngModel)]="guild.email" (change)="checkValidity( 'email' )" (keyup)="checkFix( 'email' )" name="email" #email="ngModel" />
+      <div *ngIf="status.email.errors.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of status.email.errors">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+      <button type="button" class="btn btn-primary" [disabled]="isFormInvalid()" (click)="submitForm()">Submit</button>
+      <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+    </div>
+    <div class="col-md-4" align="right">
+      <button align="right" type="button" class="btn btn-default" (click)="clearForm()">Clear Form</button>
+    </div>
+  </div>
+</form>
+
+

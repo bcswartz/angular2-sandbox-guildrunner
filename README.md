@@ -29,6 +29,14 @@ command: **npm install -g angular-cli**.
 
 ## Release Highlights
 
+### 0.0.4
+
+* Added "incorporationYear" and "email" properties to the Guild data and domain class
+* Refactored the Guild domain class to allow it to be instantiated without data
+* Created basic add/edit form for guild objects
+* Created first draft of proof-of-concept for validating a pre-RC6 template-driven form
+* Created HttpResponse object for transporting HTTP response data from the service to the component
+
 ### 0.0.3
 
 * Upgraded Angular modules to release candidate 5 (RC5)

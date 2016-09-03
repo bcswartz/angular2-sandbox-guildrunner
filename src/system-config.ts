@@ -43,6 +43,7 @@ const barrels: string[] = [
   'app/sandbox/guild-list',
   'app/home',
   'app/guilds-master',
+  'app/guilds-detail',
   /** @cli-barrel */
 ];
 

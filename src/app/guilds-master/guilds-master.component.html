@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h3>Guilds</h3>
+    <p align="right"><a class="btn btn-primary" [routerLink]="['/guild']" routerLinkActive="active">Add guild</a></p>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -10,6 +11,8 @@
           <th>Revenue</th>
           <th>Profit</th>
           <th># of Members</th>
+          <th>Email</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +23,8 @@
           <td align="right">{{guild.revenue | currency:USD:true:'.2-2' }}</td>
           <td align="right">{{guild.profit | currency:USD:true:'.2-2'}}</td>
           <td align="right">{{guild.members.length}}</td>
+          <td align="email">{{guild.email}}</td>
+          <td align="left"><a [routerLink]="['/guilds', guild.id]" routerLinkActive="active">Edit</a></td>
         </tr>
       </tbody>
     </table>

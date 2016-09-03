@@ -2,6 +2,7 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { HttpModule }     from '@angular/http';
+import { FormsModule }    from '@angular/forms';
 import { SandboxModule } from './sandbox/sandbox.module';
 import { routing }        from './app.routing';
 
@@ -11,6 +12,7 @@ import { VersionComponent } from './version/version.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { HomeComponent } from "./home/home.component";
 import { GuildsMasterComponent } from "./guilds-master/guilds-master.component";
+import { GuildsDetailComponent } from "./guilds-detail/guilds-detail.component";
 
 //Providers (services)
 import { VersionService } from './version/version.service';
@@ -20,10 +22,12 @@ import { XHRBackend } from '@angular/http';
 import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
 import { InMemoryDataService }               from './in-memory-data.service';
 
+
 @NgModule({
   imports:      [
     BrowserModule,
     HttpModule,
+    FormsModule,
     routing,
     SandboxModule
   ],
@@ -33,7 +37,8 @@ import { InMemoryDataService }               from './in-memory-data.service';
     VersionComponent,
     MainNavigationComponent,
     HomeComponent,
-    GuildsMasterComponent
+    GuildsMasterComponent,
+    GuildsDetailComponent
   ],
 
   providers: [

@@ -1,0 +1,9 @@
+div.alert-danger {
+  padding: 8px;
+}
+
+div.alert-danger ul {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}

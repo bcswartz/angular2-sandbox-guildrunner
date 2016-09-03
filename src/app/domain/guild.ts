@@ -4,6 +4,9 @@ import { Member } from './member';
 export class Guild {
   id: number;
   name: string;
+  email: string;
+  incorporationYear: number;
+
   expenses: number;
   revenue: number;
   profit: number;
@@ -11,19 +14,26 @@ export class Guild {
   address: Address;
   members: Member[] = [];
 
-  constructor( guildData:any ) {
-    this.id = guildData.id;
-    this.name = guildData.name;
-    this.expenses = guildData.expenses;
-    this.revenue = guildData.revenue;
+  constructor( guildData?: any  ) {
+    if( guildData ) {
+      this.id = guildData.id ? guildData.id : null ;
+      this.name = guildData.name ? guildData.name : null ;
+      this.email = guildData.email ? guildData.email : null;
+      this.incorporationYear = guildData.incorporationYear ? guildData.incorporationYear : null;
 
-    this.profit = this.calculateProfit();
+      this.expenses = guildData.expenses ? guildData.expenses : 0 ;
+      this.revenue = guildData.revenue ? guildData.revenue : 0 ;
 
-    this.address = new Address( guildData.address );
+      this.profit = this.calculateProfit();
 
-    guildData.members.forEach( member => {
-      this.members.push( new Member( member ) );
-    }, this );
+      this.address = guildData.address ? new Address( guildData.address ) : null;
+
+      if( guildData.members ) {
+        guildData.members.forEach( member => {
+          this.members.push( new Member( member ) );
+        }, this );
+      }
+    }
 
   }
 

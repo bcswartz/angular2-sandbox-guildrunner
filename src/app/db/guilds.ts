@@ -2,6 +2,8 @@ let guilds = [
   {
     id: 1,
     name: "Blacksmiths",
+    email: 'bsmithsinc@guildrealm.com',
+    incorporationYear: 1878,
     address: {
       street: '134 Underrock Lane',
       city: 'Old London'
@@ -32,6 +34,8 @@ let guilds = [
   {
     id: 2,
     name: "Assassins",
+    email: 'killercorp@guildrealm.com',
+    incorporationYear: 1713,
     address: {
       street: '979 Shadow Alley',
       city: 'Old London'
@@ -68,6 +72,8 @@ let guilds = [
   {
     id: 3,
     name: "Thieves",
+    email: 'moneyshift@guildrealm.com',
+    incorporationYear: 1931,
     address: {
       street: '13 Bankers Avenue',
       city: 'Old London'
