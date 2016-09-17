@@ -1,40 +1,23 @@
-import { Address } from './address';
-import { Member } from './member';
-
 export class Guild {
-  id: number;
-  name: string;
-  email: string;
-  incorporationYear: number;
+  id: number = null;
+  name: string = null;
+  email: string = null;
+  incorporationYear: number = null;
 
-  expenses: number;
-  revenue: number;
-  profit: number;
-
-  address: Address;
-  members: Member[] = [];
+  expenses: number = 0;
+  revenue: number = 0;
+  profit: number = 0;
 
   constructor( guildData?: any  ) {
     if( guildData ) {
-      this.id = guildData.id ? guildData.id : null ;
-      this.name = guildData.name ? guildData.name : null ;
-      this.email = guildData.email ? guildData.email : null;
-      this.incorporationYear = guildData.incorporationYear ? guildData.incorporationYear : null;
-
-      this.expenses = guildData.expenses ? guildData.expenses : 0 ;
-      this.revenue = guildData.revenue ? guildData.revenue : 0 ;
-
-      this.profit = this.calculateProfit();
-
-      this.address = guildData.address ? new Address( guildData.address ) : null;
-
-      if( guildData.members ) {
-        guildData.members.forEach( member => {
-          this.members.push( new Member( member ) );
-        }, this );
+      let props = Object.keys( this );
+      for( let p in props ) {
+        if( guildData[ props[p] ] ) {
+          this[ props[p] ] = guildData[ props[p] ];
+        }
       }
+      this.profit = this.calculateProfit();
     }
-
   }
 
   calculateProfit() {

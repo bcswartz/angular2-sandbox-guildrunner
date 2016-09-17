@@ -13,10 +13,15 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
 import { HomeComponent } from "./home/home.component";
 import { GuildsMasterComponent } from "./guilds-master/guilds-master.component";
 import { GuildsDetailComponent } from "./guilds-detail/guilds-detail.component";
+import { ChaptersMasterComponent } from "./chapters-master/chapters-master.component";
+import { MembersMasterComponent } from "./members-master/members-master.component";
 
 //Providers (services)
 import { VersionService } from './version/version.service';
 import { GuildService } from './guild.service';
+import { ChapterService } from "./chapter.service";
+import { MemberService } from "./member.service";
+
 // Imports for loading & configuring the in-memory web api
 import { XHRBackend } from '@angular/http';
 import { InMemoryBackendService, SEED_DATA } from 'angular2-in-memory-web-api';
@@ -38,14 +43,18 @@ import { InMemoryDataService }               from './in-memory-data.service';
     MainNavigationComponent,
     HomeComponent,
     GuildsMasterComponent,
-    GuildsDetailComponent
+    GuildsDetailComponent,
+    ChaptersMasterComponent,
+    MembersMasterComponent
   ],
 
   providers: [
     { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
     { provide: SEED_DATA,  useClass: InMemoryDataService },     // in-mem server data
     VersionService,
-    GuildService
+    GuildService,
+    ChapterService,
+    MemberService
   ],
 
   bootstrap:    [

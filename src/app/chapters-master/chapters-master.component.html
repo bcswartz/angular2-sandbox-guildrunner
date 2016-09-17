@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Chapters</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Head Chapter?</th>
+        <th>Founded</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let chapter of chapters">
+        <td>{{chapter.id}}</td>
+        <td>{{chapter.name}}</td>
+        <td>{{chapter.headChapter ? 'Yes' : 'No'}}</td>
+        <td>{{chapter.founded}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

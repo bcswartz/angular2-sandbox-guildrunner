@@ -7,6 +7,8 @@ import 'rxjs/add/operator/toPromise';
 export class SandboxService {
 
   private guildUrl = 'app/guilds';
+  private chapterUrl = 'app/chapters';
+  private memberUrl = 'app/chapterMembers';
 
   constructor( private http: Http) {}
 
@@ -15,6 +17,20 @@ export class SandboxService {
   */
   getGuilds() {
     return this.http.get( this.guildUrl )
+      .toPromise()
+      .then(response => response.json().data )
+      .catch(this.handleError);
+  }
+
+  getChapters() {
+    return this.http.get( this.chapterUrl )
+      .toPromise()
+      .then(response => response.json().data )
+      .catch(this.handleError);
+  }
+
+  getChapterMembers() {
+    return this.http.get( this.memberUrl )
       .toPromise()
       .then(response => response.json().data )
       .catch(this.handleError);

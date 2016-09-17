@@ -44,6 +44,10 @@ const barrels: string[] = [
   'app/home',
   'app/guilds-master',
   'app/guilds-detail',
+  'app/sandbox/chapter-list',
+  'app/sandbox/chapter-member-list',
+  'app/chapters-master',
+  'app/members-master',
   /** @cli-barrel */
 ];
 

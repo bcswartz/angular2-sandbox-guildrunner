@@ -7,10 +7,10 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>Incorporated</th>
           <th>Expenses</th>
           <th>Revenue</th>
           <th>Profit</th>
-          <th># of Members</th>
           <th>Email</th>
           <th>Actions</th>
         </tr>
@@ -19,10 +19,10 @@
         <tr *ngFor="let guild of guilds">
           <td align="center">{{guild.id}}</td>
           <td align="center">{{guild.name}}</td>
+          <td align="center">{{guild.incorporationYear}}</td>
           <td align="right">{{guild.expenses | currency:USD:true:'.2-2' }}</td>
           <td align="right">{{guild.revenue | currency:USD:true:'.2-2' }}</td>
           <td align="right">{{guild.profit | currency:USD:true:'.2-2'}}</td>
-          <td align="right">{{guild.members.length}}</td>
           <td align="email">{{guild.email}}</td>
           <td align="left"><a [routerLink]="['/guilds', guild.id]" routerLinkActive="active">Edit</a></td>
         </tr>
