@@ -7,6 +7,7 @@ export class Chapter {
   location: ChapterLocation = new ChapterLocation();
   headChapter: boolean = false;
   founded: Date = null;
+  defenses: Number[] = [];
 
   constructor( chapterData?: any ) {
     if( chapterData ) {

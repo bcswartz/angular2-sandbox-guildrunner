@@ -29,6 +29,13 @@ command: **npm install -g angular-cli**.
 
 ## Release Highlights
 
+### 0.0.5
+
+* Removed Address and Member domain classes; added Person, Location, Chapter, ChapterLocation, and ChapterMember classes; refactored Guild class
+* Created new approach to setting domain class property defaults and setting property values in the constructor
+* Created sandbox views and master list views for Chapters and ChapterMembers
+* Utilized Promise.all() to resolve multiple promises in component methods that need data from multiple service methods
+
 ### 0.0.4
 
 * Added "incorporationYear" and "email" properties to the Guild data and domain class

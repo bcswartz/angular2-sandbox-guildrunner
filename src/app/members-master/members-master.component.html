@@ -5,18 +5,20 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Chapter ID</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Guild</th>
+        <th>Chapter</th>
         <th>Active?</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let member of members">
         <td>{{member.id}}</td>
-        <td>{{member.chapterId}}</td>
         <td>{{member.firstName}}</td>
         <td>{{member.lastName}}</td>
+        <td>{{guilds[chapters[member.chapterId].guildId].name}}</td>
+        <td>{{chapters[member.chapterId].name}}</td>
         <td>{{member.isActive ? 'Yes' : 'No'}}</td>
       </tr>
       </tbody>

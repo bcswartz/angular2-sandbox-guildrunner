@@ -17,8 +17,15 @@ export class GuildService {
   getGuilds() {
     return this.http.get( this.guildUrl )
       .toPromise()
-      .then(response => response.json().data )
-      .catch(this.handleError);
+      .then( response => {
+        let serviceResponse = new HttpResponse( response );
+        serviceResponse.data = response.json().data;
+        return serviceResponse;
+      })
+      .catch( error => {
+        let serviceResponse = new HttpResponse( error );
+        return serviceResponse;
+      });
   }
 
   getGuild( id: number ) {

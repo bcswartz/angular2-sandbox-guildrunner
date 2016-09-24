@@ -7,6 +7,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Head Chapter?</th>
+        <th>Guild</th>
         <th>Founded</th>
       </tr>
       </thead>
@@ -15,6 +16,7 @@
         <td>{{chapter.id}}</td>
         <td>{{chapter.name}}</td>
         <td>{{chapter.headChapter ? 'Yes' : 'No'}}</td>
+        <td>{{guilds[ chapter.guildId ].name}}</td>
         <td>{{chapter.founded}}</td>
       </tr>
       </tbody>
