@@ -1,0 +1,141 @@
+<div class="row">
+  <div class="col-md-12">
+    <h6 *ngIf="!chapter">Loading...</h6>
+    <h3 *ngIf="chapter">Edit {{chapter.name}}</h3>
+  </div>
+</div>
+
+<form class="form-horizontal well well-sm" *ngIf="chapter" [formGroup]="form">
+  <p>Chapter model values are updated on submit.</p>
+  <div class="form-group">
+    <label for="name" class="col-md-2 control-label">Name:</label>
+    <div class="col-md-4">
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div *ngIf="errMsgs.name.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.name">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+      <div class="rawErrors">
+        <strong>Raw Validator errors:</strong><br />
+        {{ form.controls.name.errors | json }}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <strong>Form control state:</strong><br />
+      Valid: {{form.controls.name.valid}}<br />
+      Pristine: {{form.controls.name.pristine}}<br />
+      Touched: {{form.controls.name.touched}}<br />
+    </div>
+    <div class="col-md-3">
+      <strong>Model value:</strong><br />
+      {{chapter.name}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="name" class="col-md-2 control-label">Guild:</label>
+    <div class="col-md-4">
+      <select id="guild" class="form-control" formControlName="guild">
+        <option [selected]="form.controls.guild.value == null" value="">-- Select --</option>
+        <option *ngFor="let g of guildArray" [selected]="g.id == guild" [value]="g.id">{{g.name}}</option>
+      </select>
+      <div *ngIf="errMsgs.guild.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.guild">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+      <div class="rawErrors">
+        <strong>Raw Validator errors:</strong><br />
+        {{ form.controls.guild.errors | json }}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <strong>Form control state:</strong><br />
+      Valid: {{form.controls.guild.valid}}<br />
+      Pristine: {{form.controls.guild.pristine}}<br />
+      Touched: {{form.controls.guild.touched}}<br />
+    </div>
+    <div class="col-md-3">
+      <strong>Model value:</strong><br />
+      {{chapter.guildId}} (Name: {{ guildArray[ ( chapter.guildId - 1 )].name }})
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">Head Chapter?</label>
+    <div class="col-md-4">
+      <input type="radio" formControlName="headChapter" name="headChapter" value="true" [checked]="form.controls.headChapter.value === true"> Yes &nbsp;&nbsp;
+      <input type="radio" formControlName="headChapter" name="headChapter" value="false" [checked]="form.controls.headChapter.value === false"> No
+      (value: {{form.controls.headChapter.value}})<br />
+      <div *ngIf="errMsgs.headChapter.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.headChapter">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+      <div class="rawErrors">
+        <strong>Raw Validator errors:</strong><br />
+        {{ form.controls.headChapter.errors | json }}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <strong>Form control state:</strong><br />
+      Valid: {{form.controls.headChapter.valid}}<br />
+      Pristine: {{form.controls.headChapter.pristine}}<br />
+      Touched: {{form.controls.headChapter.touched}}<br />
+    </div>
+    <div class="col-md-3">
+      <strong>Model value:</strong><br />
+      {{chapter.headChapter}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">Defenses:</label>
+    <div class="col-md-4">
+      <ul formArrayName="defenses"> <!-- Must set the formArrayName -->
+        <li *ngFor="let def of form.controls.defenses.controls; let i = index">
+          <input type="checkbox" formControlName="{{i}}" > {{defenseArray[i].label}}
+          (value: {{form.controls.defenses.controls[i].value}})
+        </li>
+      </ul>
+      <div *ngIf="errMsgs.defenses.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.defenses">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+      <div class="rawErrors">
+        <strong>Raw Validator errors:</strong><br />
+        {{ form.controls.defenses.errors | json }}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <strong>Form control state:</strong><br />
+      Valid: {{form.controls.defenses.valid}}<br />
+      Pristine: {{form.controls.defenses.pristine}}<br />
+      Touched: {{form.controls.defenses.touched}}<br />
+    </div>
+    <div class="col-md-3">
+      <strong>Model value:</strong><br />
+      {{chapter.defenses | json}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
+      <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
+    </div>
+    <div class="col-md-3 col-md-offset-3">
+      <button type="button" class="btn btn-default" (click)="changeName()">Change name to '999'</button>
+    </div>
+  </div>
+</form>

@@ -29,6 +29,11 @@ command: **npm install -g angular-cli**.
 
 ## Release Highlights
 
+### 0.0.6
+
+* Created a sandbox version of a Chapter edit form using reactive form classes (FormGroup, FormArray, and FormControl)
+and Validators.
+
 ### 0.0.5
 
 * Removed Address and Member domain classes; added Person, Location, Chapter, ChapterLocation, and ChapterMember classes; refactored Guild class

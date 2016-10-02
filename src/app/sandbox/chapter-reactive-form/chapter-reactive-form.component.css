@@ -1,0 +1,19 @@
+div.alert-danger {
+  padding: 8px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.form-group {
+  padding-bottom:7px;
+}
+
+.rawErrors {
+  border: 1px solid #999;
+  margin-top:6px;
+  padding:4px;
+}

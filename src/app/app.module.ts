@@ -2,7 +2,7 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { HttpModule }     from '@angular/http';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { SandboxModule } from './sandbox/sandbox.module';
 import { routing }        from './app.routing';
 
@@ -33,6 +33,7 @@ import { InMemoryDataService }               from './in-memory-data.service';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     SandboxModule
   ],

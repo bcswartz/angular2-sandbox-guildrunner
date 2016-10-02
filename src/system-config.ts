@@ -48,6 +48,8 @@ const barrels: string[] = [
   'app/sandbox/chapter-member-list',
   'app/chapters-master',
   'app/members-master',
+  'app/sandbox/chapter-dynamic-form',
+  'app/sandbox/chapter-reactive-form',
   /** @cli-barrel */
 ];
 
