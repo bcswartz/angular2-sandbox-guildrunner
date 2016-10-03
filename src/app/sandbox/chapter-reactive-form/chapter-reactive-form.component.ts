@@ -86,7 +86,7 @@ export class ChapterReactiveFormComponent implements OnInit {
   checkFormValidity( data?: any ){
     for( let k in this.errMsgs ) {
       this.errMsgs[k] = [];
-      if( this.form.controls[k].errors && this.form.controls[k].dirty ) {  //Yeah, but no telling how many formGroup levels there are.
+      if( this.form.controls[k].errors && this.form.controls[k].dirty ) {
         for( let e in this.form.controls[k].errors ) {
           if( this.translations[k][e] ) {
             this.errMsgs[k].push( this.translations[k][e] );
