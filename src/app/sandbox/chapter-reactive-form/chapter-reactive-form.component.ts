@@ -116,28 +116,8 @@ export class ChapterReactiveFormComponent implements OnInit {
   }
 
   changeName() {
-    this.form.controls['name'].markAsDirty(); //If you don't mark it as dirty first, onValueChange won't process the human-friendly error message
-    //this.form.controls['name'].markAsTouched(); //Will this get us minlength...nope
-    //this.form.controls['name'].setValue( 'kkk' );  //...huh, minlength fires on this, so only on string value!
+    this.form.controls['name'].markAsDirty();
     this.form.controls['name'].setValue( '999' );
-
-    //this.form.controls['name'].setErrors( { "minlength": true, "pattern": true } );  //overrides existing errors, though.  Probably overridden on value change.  Yep
-
-    //this.form.controls['name'].updateValueAndValidity(); //Changes value so wipes out manual setErrors
-
-    //Could manually set minlength error on it
-
-
-
-    //this.form.patchValue( { name: 999 } ); //Hmm, doesn't trigger minLength
-
-    //this.form.controls['name'].setValue( 777 ); //works but doesn't set as dirty
-    //this.form.controls['name'].setValue( 777 ).updateValueAndValidity(); //not chainable
-    //this.form.controls['name'].setValue( 878 ); //setting the value changes the validity
-
-    //this.form.controls['name'].updateValueAndValidity();  //doesn't change status to dirty, though
-    //Also doesn't mark field as dirty...nor does it trigger form.onValueChanged?
-    //this.form.controls['name'].markAsDirty(); //no effect?  I think it does, but since it happens after onValueChanged...
   }
 
   initializeData() {
