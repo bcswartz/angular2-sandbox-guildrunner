@@ -11,13 +11,14 @@
     <label for="name" class="col-md-2 control-label">Name:</label>
     <div class="col-md-4">
       <input id="name" type="text" class="form-control" formControlName="name">
-      <div *ngIf="errMsgs.name.length" class="alert alert-danger">
+      <div *ngIf="pageLoaded && showErrors(form.controls.name)" class="alert alert-danger">
         <ul>
-          <li *ngFor="let error of errMsgs.name">
+          <li *ngFor="let error of getControlErrors( form.controls.name )">
             {{error}}
           </li>
         </ul>
       </div>
+
       <div class="rawErrors">
         <strong>Raw Validator errors:</strong><br />
         {{ form.controls.name.errors | json }}
@@ -42,13 +43,14 @@
         <option [selected]="form.controls.guild.value == null" value="">-- Select --</option>
         <option *ngFor="let g of guildArray" [selected]="g.id == guild" [value]="g.id">{{g.name}}</option>
       </select>
-      <div *ngIf="errMsgs.guild.length" class="alert alert-danger">
+      <div *ngIf="pageLoaded && showErrors(form.controls.guild)" class="alert alert-danger">
         <ul>
-          <li *ngFor="let error of errMsgs.guild">
+          <li *ngFor="let error of getControlErrors( form.controls.guild )">
             {{error}}
           </li>
         </ul>
       </div>
+
       <div class="rawErrors">
         <strong>Raw Validator errors:</strong><br />
         {{ form.controls.guild.errors | json }}
@@ -72,13 +74,15 @@
       <input type="radio" formControlName="headChapter" name="headChapter" value="true" [checked]="form.controls.headChapter.value === true"> Yes &nbsp;&nbsp;
       <input type="radio" formControlName="headChapter" name="headChapter" value="false" [checked]="form.controls.headChapter.value === false"> No
       (value: {{form.controls.headChapter.value}})<br />
-      <div *ngIf="errMsgs.headChapter.length" class="alert alert-danger">
+
+      <div *ngIf="pageLoaded && showErrors(form.controls.headChapter)" class="alert alert-danger">
         <ul>
-          <li *ngFor="let error of errMsgs.headChapter">
+          <li *ngFor="let error of getControlErrors( form.controls.headChapter )">
             {{error}}
           </li>
         </ul>
       </div>
+
       <div class="rawErrors">
         <strong>Raw Validator errors:</strong><br />
         {{ form.controls.headChapter.errors | json }}
@@ -105,13 +109,14 @@
           (value: {{form.controls.defenses.controls[i].value}})
         </li>
       </ul>
-      <div *ngIf="errMsgs.defenses.length" class="alert alert-danger">
+      <div *ngIf="pageLoaded && showErrors(form.controls.defenses)" class="alert alert-danger">
         <ul>
-          <li *ngFor="let error of errMsgs.defenses">
+          <li *ngFor="let error of getControlErrors( form.controls.defenses )">
             {{error}}
           </li>
         </ul>
       </div>
+
       <div class="rawErrors">
         <strong>Raw Validator errors:</strong><br />
         {{ form.controls.defenses.errors | json }}

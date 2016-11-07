@@ -29,6 +29,11 @@ command: **npm install -g angular-cli**.
 
 ## Release Highlights
 
+### 0.0.7
+
+* Revised the sandbox Chapter edit form to use the [vadacl](https://github.com/bcswartz/vadacl) validation library,
+which allows developers to define validation rules at both the data object and component level.
+
 ### 0.0.6
 
 * Created a sandbox version of a Chapter edit form using reactive form classes (FormGroup, FormArray, and FormControl)

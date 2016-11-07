@@ -3,7 +3,8 @@ import { Chapter } from "../../domain/chapter";
 import { guilds } from "../../db/guilds";
 import { defenseMeasures } from "../../db/defense-measures";
 
-import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from '@angular/forms';
+import { FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { Vadacl } from "../../vadacl/vadacl";
 
 @Component({
   moduleId: module.id,
@@ -11,43 +12,25 @@ import {FormControl, FormGroup, FormArray, Validators, FormBuilder} from '@angul
   templateUrl: 'chapter-reactive-form.component.html',
   styleUrls: ['chapter-reactive-form.component.css']
 })
-export class ChapterReactiveFormComponent implements OnInit {
+export class ChapterReactiveFormComponent extends Vadacl implements OnInit {
 
   chapter: Chapter;
   defenseArray: any = [];
   guildArray: any = [];
   defenseBoxArray: FormArray;
 
+  pageLoaded: boolean = false;
+
   form: FormGroup;
-  errMsgs: any = {
-    name: [],
-    guild: [],
-    headChapter: [],
-    defenses: []
-  };
 
-  translations: any = {
-    name: {
-      required: 'The name is required.',
-      minlength: 'The name must be at least 4 characters long.',
-      pattern: 'The name can only contain letters.'
-    },
-    guild: {
-      required: 'Please select a guild.'
-    },
-    headChapter: {
-      required: 'Please select either Yes or No.'
-    },
-    defenses: {
-      noDefenses: 'The chapter must implement at least one defensive measure.'
-    }
-  };
-
-  constructor( private formBuilder: FormBuilder ) { }
+  constructor( private formBuilder: FormBuilder ) {
+    super();
+  }
 
   ngOnInit() {
     this.initializeData();
     this.buildForm();
+    this.pageLoaded = true
   }
 
   buildForm() {
@@ -58,7 +41,7 @@ export class ChapterReactiveFormComponent implements OnInit {
       for( let c in formArray.controls ) {
         if( formArray.controls[c].value == true ) { valid = true }
       }
-      return valid == true ? null : { noDefenses: true }
+      return valid == true ? null : { 'noDefenses': { 'noDefenses': true, 'message': 'Chapter must have at least one defense.' } }
     }
 
     //Construct and populate the defenses FormArray outside of the FormBuilder so we can populate it dynamically
@@ -68,36 +51,28 @@ export class ChapterReactiveFormComponent implements OnInit {
     }
 
     this.form = this.formBuilder.group( {
-      'name': [ this.chapter.name, [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.pattern('[a-zA-Z]+')
-      ] ],
-      'guild': [ this.chapter.guildId, Validators.required ],
-      'headChapter': [ this.chapter.headChapter, Validators.required ],
+      'name': [
+        this.chapter.name,
+        this.applyRules(
+          this.chapter,
+          'name',
+          { minLength: { minLength: 4, message: 'The name must be at least 4 characters.' } }
+        )
+      ],
+      'guild': [
+        this.chapter.guildId,
+        this.applyRules( this.chapter, 'guild' )
+      ],
+      'headChapter': [
+        this.chapter.headChapter,
+        this.applyRules( this.chapter, 'headChapter' )
+      ],
       'defenses': this.defenseBoxArray
     } );
 
-    this.form.valueChanges
-      .subscribe( data => this.checkFormValidity( data ) );
-  }
-
-
-  checkFormValidity( data?: any ){
-    for( let k in this.errMsgs ) {
-      this.errMsgs[k] = [];
-      if( this.form.controls[k].errors && this.form.controls[k].dirty ) {
-        for( let e in this.form.controls[k].errors ) {
-          if( this.translations[k][e] ) {
-            this.errMsgs[k].push( this.translations[k][e] );
-          }
-        }
-      }
-    }
   }
 
   submitForm() {
-    this.checkFormValidity()
     if( this.form.valid ) {
       this.chapter.name = this.form.value.name; //value is a key/value map
       this.chapter.guildId = +this.form.value.guild; //need this translated to number, hence +
@@ -116,8 +91,7 @@ export class ChapterReactiveFormComponent implements OnInit {
   }
 
   changeName() {
-    this.form.controls['name'].markAsDirty();
-    this.form.controls['name'].setValue( '999' );
+    this.changeControlValue( this.form.controls[ 'name' ], '999' );
   }
 
   initializeData() {

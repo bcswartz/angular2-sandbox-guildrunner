@@ -1,6 +1,7 @@
 import { ChapterLocation } from './chapter-location';
+import { Validatable, PropertyValidations } from '../vadacl/interfaces';
 
-export class Chapter {
+export class Chapter implements Validatable{
   id: number = null;
   guildId: number = null;
   name: string = null;
@@ -9,7 +10,17 @@ export class Chapter {
   founded: Date = null;
   defenses: Number[] = [];
 
+  validations: { [ index: string ] : PropertyValidations } = {
+    name: {
+      required: { message: 'The name is required.'},
+      pattern: { pattern: '[a-zA-Z]+', message: 'The chapter name cannot contain numbers or spaces.' },
+    },
+    guild: { required: { } },
+    headChapter: { required: { message: 'Must denote if this chapter is the head chapter.' } },
+  };
+
   constructor( chapterData?: any ) {
+
     if( chapterData ) {
       let props = Object.keys( this );
       for( let p in props ) {
@@ -21,6 +32,7 @@ export class Chapter {
           }
         }
       }
+
     }
   }
 
